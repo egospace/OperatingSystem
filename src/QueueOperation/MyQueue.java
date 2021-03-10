@@ -2,6 +2,8 @@ package QueueOperation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+
 
 public class MyQueue<T> {
 
@@ -80,24 +82,29 @@ public class MyQueue<T> {
         return list;
     }
 
-    public T[] sort(){
+    public void sort(){
         T data = queue[front];
-        if("class java.lang.String".equals(data.getClass().toString())){
-//            while((rear + 1) % maxSize != flag){
-//                if(data.equals(queue[flag])){
-//                    list.add(flag);
-//                }
-//                flag = (flag + 1)%maxSize;
-//            }
-        }else{
-//            while((rear + 1) % maxSize != flag){
-//                if(queue[flag] == data){
-//                    list.add(flag);
-//                }
-//                flag = (flag + 1)%maxSize;
-//            }
+        ArrayList<T> list = new ArrayList<>();
+        int flag = front;
+        while ((rear + 1) % maxSize != flag) {
+            list.add(queue[flag]);
+            flag = (flag + 1) % maxSize;
         }
-        return queue;
+        int size = list.size();
+        for (int i=0; i<size-1; i++)
+            for (int j = i; j>0 && ((Comparable) list.get(j - 1)).compareTo(list.get(j))>0; j--)
+                swap(list, j, j-1);
+        flag = front;
+        int j = 0;
+        while ((rear + 1) % maxSize != flag && j < size) {
+            queue[flag] = list.get(j++);
+            flag = (flag + 1) % maxSize;
+        }
+    }
+    private  void swap(ArrayList<T> x, int a, int b) {
+        T t =  x.get(a);
+        x.set(a, x.get(b));
+        x.set(b, t);
     }
 
     public int getMaxSize() {
