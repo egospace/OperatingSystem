@@ -2,10 +2,9 @@ package QueueOperation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 
 
-public class MyQueue<T> {
+public class MyQueue<T>{
 
     private int maxSize;
     private int front;
@@ -101,6 +100,7 @@ public class MyQueue<T> {
             flag = (flag + 1) % maxSize;
         }
     }
+
     private  void swap(ArrayList<T> x, int a, int b) {
         T t =  x.get(a);
         x.set(a, x.get(b));
