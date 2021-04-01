@@ -1,10 +1,11 @@
-package ProcessPriorityScheduling;
+package FCFS;
 
-public class Process{
+import FCFS.time;
+
+public class Process implements Comparable{
 
     private int id; //编号
     private String name; // 进程名
-    private int good;
     private time arrive; //到达就绪队列的时间
     private int zx; //执行时间
     private time start; //进入CPU运行开始的时间
@@ -26,14 +27,6 @@ public class Process{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getGood() {
-        return good;
-    }
-
-    public void setGood(int good) {
-        this.good = good;
     }
 
     public time getArrive() {
@@ -84,6 +77,14 @@ public class Process{
         this.zzxs = zzxs;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        if( o instanceof Process){
+            Process t = (Process) o;
+            return (this.arrive.getHour()*60+this.arrive.getMin())-(t.arrive.getHour()*60+t.arrive.getMin());
+        }
+        return 0;
+    }
 
     @Override
     public String toString() {
