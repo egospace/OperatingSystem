@@ -1,8 +1,7 @@
 package BankersAlgorithm;
 
 
-import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class OS {
     private int MAX = 100;
