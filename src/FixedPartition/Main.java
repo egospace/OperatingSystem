@@ -86,7 +86,7 @@ public class Main {
         System.out.println("打印各作业信息:");
         System.out.println("作业名\t\t\t\t作业大小");
         for (int i = 0; i < job_num; i++) {
-            System.out.print("JOB"+(i+1)+"\t\t\t\t"+nums[i]+"KB");
+            System.out.println("JOB"+(i+1)+"\t\t\t\t"+nums[i]+"KB");
         }
     }
     public static boolean check(ArrayList<Disk> disks){
