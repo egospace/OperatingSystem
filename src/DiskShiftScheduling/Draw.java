@@ -27,28 +27,28 @@ class MyPanel extends JPanel	//我自己的面板，用于绘图和实现绘图�
         //1.调用父类函数完成初始化
         super.paint(g);
         //画直线
-        g.drawLine(10, 20, 200, 20);
+        g.drawLine(10, 20, 200*5, 20);
         for (int i=0; i < list.length ;i++){
-            g.drawString(String.valueOf(list[i]),list[i],20);
+            g.drawString(String.valueOf(list[i]),list[i]*5,20);
             //画圆
-            g.drawOval(list[i], 20, 5, 5);
+            g.drawOval(list[i]*5, 20, 5, 5);
             g.setColor(Color.RED);		//设置颜色
-            g.fillRect(list[i], 20, 5, 5);
+            g.fillRect(list[i]*5, 20, 5, 5);
             g.setColor(Color.BLACK);
         }
         int y = 40;
         for (int i=0; i < out.length-1 ; i++){
             //画圆
-            g.drawOval(out[i], y, 5, 5);
+            g.drawOval(out[i]*5, y, 5, 5);
             g.setColor(Color.RED);		//设置颜色
-            g.fillRect(out[i], y, 5, 5);
+            g.fillRect(out[i]*5, y, 5, 5);
             g.setColor(Color.BLACK);
             //画直线
-            g.drawLine(out[i], y, out[i+1], y+20);
+            g.drawLine(out[i]*5, y, out[i+1]*5, y+20);
             //画圆
-            g.drawOval(out[i+1], y+20, 5, 5);
+            g.drawOval(out[i+1]*5, (y+20), 5, 5);
             g.setColor(Color.RED);		//设置颜色
-            g.fillRect(out[i+1], y+20, 5, 5);
+            g.fillRect(out[i+1]*5, (y+20), 5, 5);
             g.setColor(Color.BLACK);
             y+=20;
         }
