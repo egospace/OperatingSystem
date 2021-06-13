@@ -1,7 +1,6 @@
 package MUL_FCFS;
 
 
-import HRRF.Process;
 
 public class Disk implements Comparable{
     String name;// 作业名
@@ -23,7 +22,7 @@ public class Disk implements Comparable{
     @Override
     public int compareTo(Object o) {
         if( o instanceof Disk){
-            Disk t = (Disk) o;87、8
+            Disk t = (Disk) o;
             return (this.inTime.getHour()*60+this.inTime.getMin())-(t.inTime.getHour()*60+t.inTime.getMin());
         }
         return 0;
